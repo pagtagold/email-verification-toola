@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+</head>
+<body>
+    <h1>Email Verification Tool</h1>
+    <input type="email" placeholder="Enter your email" id="email">
+    <button onclick="verifyEmail()">Verify</button>
+    <p id="result"></p>
+
+    <script>
+        function verifyEmail() {
+            const email = document.getElementById('email').value;
+            document.getElementById('result').innerText = `Verifying ${email}...`;
+            // Add your verification logic here
+        }
+    </script>
+</body>
+</html>
