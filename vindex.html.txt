@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification Tool</title>
+</head>
+<body>
+    <h1>Email Verification Tool</h1>
+    <textarea id="emails" placeholder="Enter emails, one per line"></textarea>
+    <button onclick="verifyEmails()">Verify</button>
+    <pre id="result"></pre>
+
+    <script>
+        async function verifyEmails() {
+            const emailArray = document.getElementById('emails').value.split('\n').map(email => email.trim());
+            const results = emailArray.map(email => ({ email, valid: validateEmail(email) }));
+            document.getElementById('result').innerText = JSON.stringify(results, null, 2);
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+    </script>
+</body>
+</html>
